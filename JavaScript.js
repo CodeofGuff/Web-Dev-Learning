@@ -7,3 +7,4 @@ function number(min, max) {
 }
 let rnumber = number(1, 999999)
 console.log(rnumber)
+

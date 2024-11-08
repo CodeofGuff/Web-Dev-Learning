@@ -40,3 +40,4 @@ console.log(b); // Output: 19
 const myPet = "cat";
 console.log(`I own a pet ${myPet}.`); // Output: I own a pet cat. REMEMBER THE BACKTICKS
 //
+ 

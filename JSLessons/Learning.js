@@ -36,3 +36,7 @@ console.log(a); // Output: 11
 let b = 20;
 b--;
 console.log(b); // Output: 19
+// String Interpolation with *USE BACKTICKS (NEXT TO THE 1 KEY)* ` ${VARIABLE} `
+const myPet = "cat";
+console.log(`I own a pet ${myPet}.`); // Output: I own a pet cat. REMEMBER THE BACKTICKS
+//

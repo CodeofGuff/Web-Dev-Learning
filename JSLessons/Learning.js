@@ -193,3 +193,114 @@ const rectangleArea = (width, height) => {
   let area = width * height;
   return area;
 };
+// Zero Parameters:
+const functionName = () => {};
+// One Parameter:
+const functionName1 = (paramOne) => {};
+// Two + Parameters:
+const functionName2 = (paramOne, paramTwo) => {};
+// Return is Implicit and {}'s not needed for single line blocks:
+const squareNum = (num) => {
+  return num * num;
+};
+// Can look like:
+const squareNum = (num) => num * num;
+// Another iE:
+const plantNeedsWater = (day) => (day === "Wednesday" ? true : false);
+//rockPaperScissors
+console.log("hi");
+const getUserChoice = (userInput) => {
+  userInput = userInput.toLowerCase();
+  if (
+    userInput === "rock" ||
+    userInput === "paper" ||
+    userInput === "scissors"
+  ) {
+    return userInput;
+  } else {
+    console.log("error: check spelling(ROCK, PAPER, SCISSORS)");
+  }
+};
+const getComputerChoice = () => {
+  let randomNum = Math.floor(Math.random() * 3);
+  if (randomNum === 0) {
+    return "rock";
+  } else if (randomNum === 1) {
+    return "paper";
+  } else if (randomNum === 2) {
+    return "scissors";
+  } else {
+    return "error: computer malfunction";
+  }
+};
+const determineWinner = (userChoice, computerChoice) => {
+  if (userChoice === computerChoice) {
+    return "it's a tie!";
+  }
+  if (userChoice === "rock") {
+    if (computerChoice === "paper") {
+      return "computer wins";
+    } else {
+      return "player wins";
+    }
+  }
+  if (userChoice === "paper") {
+    if (computerChoice === "rock") {
+      return "computer wins";
+    } else {
+      return "player wins";
+    }
+  }
+  if (userChoice === "scissors") {
+    if (computerChoice === "rock") {
+      return "computer wins";
+    } else {
+      return "player wins";
+    }
+  }
+};
+function playGame() {
+  const userChoice = getUserChoice("rock");
+  const computerChoice = getComputerChoice();
+  console.log("The user rolled: " + userChoice);
+  console.log("The computer rolled: " + computerChoice);
+
+  console.log(determineWinner(userChoice, computerChoice));
+}
+playGame();
+// Arrays declared with const remain mutable like any let variable
+let secretMessage = [
+  "Learning",
+  "is",
+  "not",
+  "about",
+  "what",
+  "you",
+  "get",
+  "easily",
+  "the",
+  "first",
+  "time,",
+  "it",
+  "is",
+  "about",
+  "what",
+  "you",
+  "can",
+  "figure",
+  "out.",
+  "-2015,",
+  "Chris",
+  "Pine,",
+  "Learn",
+  "JavaScript",
+];
+console.log(secretMessage.length); // 24
+secretMessage.pop();
+console.log(secretMessage.length); // 23
+secretMessage.push("to", "program");
+secretMessage[7] = "right";
+secretMessage.shift();
+secretMessage.unshift("Programming");
+secretMessage.splice(6, 5, "know");
+console.log(secretMessage.join(" ")); // Programming is not about what you know it is about what you can figure out. -2015, Chris Pine, Learn to program

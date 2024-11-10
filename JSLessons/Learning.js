@@ -304,3 +304,69 @@ secretMessage.shift();
 secretMessage.unshift("Programming");
 secretMessage.splice(6, 5, "know");
 console.log(secretMessage.join(" ")); // Programming is not about what you know it is about what you can figure out. -2015, Chris Pine, Learn to program
+// A for loop contains three expressions separated by ; inside the parentheses:
+// an initialization starts the loop and can also be used to declare the iterator variable.
+// a stopping condition is the condition that the iterator variable is evaluated against— if the condition evaluates to true the code block will run, and if it evaluates to false the code will stop.
+// an iteration statement is used to update the iterator variable on each loop.
+// The for loop syntax looks like this:
+for (let counter = 0; counter < 4; counter++) {
+  console.log(counter);
+} // 0, 1, 2, 3
+for (let counter = 3; counter >= 0; counter--) {
+  console.log(counter);
+} // 3, 2, 1, 0
+// Looping throgh Arrays
+const vacationSpots = ["Bali", "Paris", "Tulum"];
+for (let i = 0; i < vacationSpots.length; i++) {
+  console.log(`I would love to visit ${vacationSpots[i]}`);
+} // prints each phrase with Bali, Paris, Tulum, in order.
+// nested loops... jesus...
+const myArray = [6, 19, 20];
+const yourArray = [19, 81, 2];
+for (let i = 0; i < myArray.length; i++) {
+  for (let j = 0; j < yourArray.length; j++) {
+    // runs for each myArray.length
+    if (myArray[i] === yourArray[j]) {
+      // runs for each yourArray.length
+      console.log("Both arrays have the number: " + yourArray[j]);
+    }
+  }
+}
+// nested string
+const bobsFollowers = ["billy", "tilly", "tammy", "sammy"];
+const tinasFollowers = ["billy", "gene", "tammy"];
+const mutualFollowers = [];
+for (let i = 0; i < bobsFollowers.length; i++) {
+  for (let j = 0; j < tinasFollowers.length; j++) {
+    if (bobsFollowers[i] === tinasFollowers[j]) {
+      mutualFollowers.push(bobsFollowers[j]);
+    }
+  }
+}
+console.log(mutualFollowers);
+//
+// A for loop that prints 1, 2, and 3
+for (let counterOne = 1; counterOne < 4; counterOne++) {
+  console.log(counterOne);
+}
+// A while loop that prints 1, 2, and 3
+let counterTwo = 1;
+while (counterTwo < 4) {
+  console.log(counterTwo);
+  counterTwo++;
+}
+// do...while
+let countString = "";
+let i = 0;
+do {
+  countString = countString + i;
+  i++;
+} while (i < 5);
+console.log(countString); // prints 01234
+// Another one
+const cupsOfSugarNeeded = 2;
+let cupsAdded = 0;
+do {
+  cupsAdded++;
+} while (cupsOfSugarNeeded > cupsAdded);
+console.log(cupsAdded);

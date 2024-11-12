@@ -509,3 +509,193 @@ for (let i in spaceship.crew) {
   console.log(`${spaceship.crew[i].name} : ${spaceship.crew[i].degree}`)
 }
 //
+// Using the this keyword - use to access the object itself
+const robot = {
+  model: "1E78V2",
+  energyLevel: 100,
+  provideInfo() {
+    return `I am ${this.model} and my current energy level is ${this.energyLevel}.`;
+  },
+};
+console.log(robot.provideInfo())
+
+// Getters are methods that get and return the internal properties of an object.
+const person = {
+  _firstName: 'John',
+  _lastName: 'Doe',
+  get fullName() {
+    if (this._firstName && this._lastName){
+      return `${this._firstName} ${this._lastName}`;
+    } else {
+      return 'Missing a first name or a last name.';
+    }
+  }
+}
+person.fullName; // 'John Doe'
+// Setter methods which reassign values of existing properties within an object.
+const person = {
+  _age: 37,
+  set age(newAge){
+    if (typeof newAge === 'number'){
+      this._age = newAge;
+    } else {
+      console.log('You must assign a number to age');
+    }
+  }
+};
+person.age = 40;
+console.log(person._age); // Logs: 40
+person.age = '40'; // Logs: You must assign a number to age
+const robot = {
+  _model: "1E78V2",
+  _energyLevel: 100,
+  _numOfSensors: 15,
+  get numOfSensors() {
+    if (typeof this._numOfSensors === "number") {
+      return this._numOfSensors;
+    } else {
+      return "Sensors are currently down.";
+    }
+  },
+  set numOfSensors(num) {
+    if (typeof num === "number" && num >= 0) {
+      this._numOfSensors = num;
+    } else {
+      return "Pass in a number that is greater than or equal to 0";
+    }
+  },
+
+};
+robot.numOfSensors._numOfSensors = 100;
+console.log(robot.numOfSensors) // Prints 15
+//
+// Factory Functions
+const monsterFactory = (name, age, energySource, catchPhrase) => {
+  return {
+    name: name,
+    age: age,
+    energySource: energySource,
+    scare() {
+      console.log(catchPhrase);
+    }
+  }
+};
+const ghost = monsterFactory('Ghouly', 251, 'ectoplasm', 'BOO!');
+ghost.scare(); // 'BOO!'
+// More Example
+const robotFactory = (model, mobile) => {
+  return {
+    model: model,
+    mobile: mobile,
+    beep() {
+      console.log("Beep Boop");
+    },
+  };
+};
+const tinCan = robotFactory('P-500', true);
+tinCan.beep();
+// Property Value Shorthand aka destructuring
+const monsterFactory = (name, age) => {
+  return {
+    name: name,
+    age: age
+  }
+};
+// TURNS INTO THIS:
+const monsterFactory = (name, age) => {
+  return {
+    name,
+    age
+  }
+};
+// Further destrucuring and extracting properties as variables
+const vampire = {
+  name: 'Dracula',
+  residence: 'Transylvania',
+  preferences: {
+    day: 'stay inside',
+    night: 'satisfy appetite'
+  }
+};
+const { residence } = vampire;
+console.log(residence); // Prints 'Transylvania'
+// More Destructuring
+const robot = {
+  model: '1E78V2',
+  energyLevel: 100,
+  functionality: {
+    beep() {
+      console.log('Beep Boop');
+    },
+    fireLaser() {
+      console.log('Pew Pew');
+    },
+  }
+};
+const { functionality } = robot;
+functionality.beep()
+// Review get/set
+const menu = {
+  _meal: "",
+  _price: 0,
+  set meal(mealToCheck) {
+    if (typeof mealToCheck === "string") {
+      return (this._meal = mealToCheck);
+    }
+  },
+  set price(priceToCheck) {
+    if (typeof priceToCheck === "number") {
+      return (this._price = priceToCheck);
+    }
+  },
+  get todaysSpecial() {
+    if (this._meal && this.menu) {
+      return "Today's special is pineapple!";
+    } else {
+      return "Menu or price was not set correctly!";
+    }
+  },
+};
+menu.meal = "pizza";
+menu.price = 20;
+console.log(menu)
+console.log(menu.todaysSpecial)
+// More Review
+const team = {
+  _players: [
+    { firstName: "jon", lastName: "snow", age: 20 },
+    { firstName: "theon", lastName: "greyjoy", age: 19 },
+    { firstName: "ron", lastName: "burgandy", age: 40 },
+  ],
+  _games: [
+    { opponent: "iceking", teamPoints: 10, opponentPoints: 9 },
+    { opponent: "sister", teamPoints: 69, opponentPoints: 70 },
+    { opponent: "news", teamPoints: 9, opponentPoints: 9 },
+  ],
+  get players() {
+    return this._players;
+  },
+  get games() {
+    return this._games;
+  },
+  addPlayer(newFirstName, newLastName, newAge) {
+    const player = {
+      firstName: newFirstName,
+      lastName: newLastName,
+      age: newAge,
+    };
+    this._players.push(player);
+  },
+  addGame(newOpponent, newTeamPoints, newOpponentPoints) {
+    const game = {
+      opponent: newOpponent,
+      teamPoints: newTeamPoints,
+      opponentPoints: newOpponentPoints,
+    };
+    this._games.push(game);
+  },
+};
+team.addPlayer("sara", "conor", 29);
+team.addGame("terminators", 100, 98);
+console.log(team._players);
+console.log(team._games);

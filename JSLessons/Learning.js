@@ -188,7 +188,7 @@ const calculateArea2 = function (width, height) {
   return width * height;
 };
 // Arrow Functions
-// No need ot type out function()
+// No need to type out function()
 const rectangleArea = (width, height) => {
   let area = width * height;
   return area;
@@ -303,7 +303,8 @@ secretMessage[7] = "right";
 secretMessage.shift();
 secretMessage.unshift("Programming");
 secretMessage.splice(6, 5, "know");
-console.log(secretMessage.join(" ")); // Programming is not about what you know it is about what you can figure out. -2015, Chris Pine, Learn to program
+console.log(secretMessage.join(" ")); // Prints: Programming is not about what you know it is about what you can figure out. -2015, Chris Pine, Learn to program
+// For Loop
 // A for loop contains three expressions separated by ; inside the parentheses:
 // an initialization starts the loop and can also be used to declare the iterator variable.
 // a stopping condition is the condition that the iterator variable is evaluated against— if the condition evaluates to true the code block will run, and if it evaluates to false the code will stop.
@@ -355,7 +356,7 @@ while (counterTwo < 4) {
   console.log(counterTwo);
   counterTwo++;
 }
-// do...while
+// do...while .. use to run a code block at least once, then while a condition.
 let countString = "";
 let i = 0;
 do {
@@ -370,3 +371,141 @@ do {
   cupsAdded++;
 } while (cupsOfSugarNeeded > cupsAdded);
 console.log(cupsAdded);
+// Functions as parameters
+const addTwo = (num) => {
+  return num + 2;
+};
+const checkConsistentOutput = (func, val) => {
+  let checkA = val + 2;
+  let checkB = func(val);
+  if (checkA === checkB) {
+    return func(val);
+  } else {
+    console.log("inconsitent results");
+  }
+};
+console.log(checkConsistentOutput(addTwo, 4)); // Prints 6
+// Methods on Arrays
+//forEach
+const fruits = ["mango", "papaya", "pineapple", "apple"];
+fruits.forEach((fruit) => console.log(`I want to eat a ${fruit}`));
+// .map() takes an argument of a callback function and returns a new array
+const bigNumbers = [100, 200, 300, 400, 500];
+const smallNumbers = bigNumbers.map((num) => {
+  return num / 100;
+});
+console.log(smallNumbers); // Prints [1, 2, 3, 4, 5]
+// .filter() returns an array of elements after filtering out certain elements from the original array.
+//  The callback function for the .filter() method should return true or false depending on the element that
+// is passed to it. The elements that cause the callback function to return true are added to the new array.
+const words = ["chair", "music", "pillow", "brick", "pen", "door"];
+const shortWords = words.filter((word) => {
+  return word.length < 6;
+});
+console.log(shortWords); // Output: ['chair', 'music', 'brick', 'pen', 'door']
+// .findIndex() on an array will return the index of the first element that evaluates to true in the callback function.
+const jumbledNums = [123, 25, 78, 5, 9];
+const lessThanTen = jumbledNums.findIndex((num) => {
+  return num < 10;
+});
+console.log(lessThanTen); // Output: 3
+console.log(jumbledNums[3]); // Output: 5
+// .reduce() method returns a single value after iterating through the elements of an array, thereby reducing the array.
+// example with a second argmument (10), so set th einital accumulator value
+const newNumbers = [1, 3, 5, 7];
+const newSum = newNumbers.reduce((accumulator, currentValue) => {
+  console.log("The value of accumulator: ", accumulator);
+  console.log("The value of currentValue: ", currentValue);
+  return accumulator + currentValue;
+}, 10);
+console.log(newSum);
+// Prints:
+/*
+The value of accumulator:  10
+The value of currentValue:  1
+The value of accumulator:  11
+The value of currentValue:  3
+The value of accumulator:  14
+The value of currentValue:  5
+The value of accumulator:  19
+The value of currentValue:  7
+26*/
+
+// Objects - one of the eight data types in JS
+// Containers storing related data and functionality
+// Declaring an object
+let spaceship1 = {};
+// An object literal with two key-value pairs
+let spaceship = {
+  homePlanet: 'Earth',
+  color: 'silver'
+  'Fuel Type': 'Turbo Fuel',
+};
+// Accessing
+spaceship.homePlanet; // Returns 'Earth',
+spaceship.color; // Returns 'silver',
+// Using Bracket Notation
+spaceship['Fuel Type'];   // Returns  'Turbo Fuel'
+// bracket Notation with Functions
+let returnAnyProp = (objectName, propName) => objectName[propName];
+returnAnyProp(spaceship, 'homePlanet'); // Returns 'Earth'
+// use either dot notation, .,
+// or bracket notation, [],
+// and the assignment operator, =
+// to add new key-value pairs to an object or change an existing property.
+let spaceship = {
+  "Fuel Type": "Turbo Fuel",
+  homePlanet: "Earth",
+};
+let greenEnergy = (obj) => {
+  obj["Fuel Type"] = "avocado oil"
+};
+let remotelyDisable = obj => {
+  obj.disabled = true;
+}
+greenEnergy(spaceship)
+remotelyDisable(spaceship)
+console.log(spaceship)
+// Methods in Object literals (key: Value) //  retreat: function () - Looks like: // becsause we can ommit the function keyword
+let retreatMessage = 'We no longer wish to conquer your planet. It is full of dogs, which we do not care for.';
+const alienShip = {
+  retreat () {
+    console.log(retreatMessage)
+  },
+  takeOff () {
+    console.log('Spim... Borp... Glix... Blastoff!')
+  }
+}
+alienShip.retreat()
+alienShip.takeOff()
+// More access objects
+let spaceship = {
+    crew: {
+    captain: {
+        name: 'Lily',
+        degree: 'Computer Engineering',
+        cheerTeam() { console.log('You got this!') }
+        },
+    'chief officer': {
+        name: 'Dan',
+        degree: 'Aerospace Engineering',
+        agree() { console.log('I agree, captain!') }
+        },
+    medic: {
+        name: 'Clementine',
+        degree: 'Physics',
+        announce() { console.log(`Jets on!`) } },
+    translator: {
+        name: 'Shauna',
+        degree: 'Conservation Science',
+        powerFuel() { console.log('The tank is full!') }
+        }
+    }
+};
+for (let i in spaceship.crew) {
+  console.log(`${i} : ${spaceship.crew[i].name}`)
+}
+for (let i in spaceship.crew) {
+  console.log(`${spaceship.crew[i].name} : ${spaceship.crew[i].degree}`)
+}
+//

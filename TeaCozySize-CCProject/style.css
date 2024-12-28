@@ -1,0 +1,114 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    color: seashell;
+    background-color: black;
+    opacity: 0.9;
+    text-align: center;
+}
+
+/* Header Styles */
+header {
+    width: 100%;
+    height: 69px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid seashell;
+    position: fixed;
+    z-index: 1;
+    background-color: black;
+}
+
+header img {
+    height: 50px;
+    margin-left: 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin-right: 10px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: seashell;
+    text-decoration: underline;
+}
+
+/* Mission Section */
+.mission {
+    height: 700px;
+    width: 100%;
+    background-image: url('https://content.codecademy.com/courses/freelance-1/unit-4/img-mission-background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 69px;
+}
+
+.mission h2, .mission h4 {
+    background-color: black;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Featured Tea Section */
+.featured-tea {
+    width: 1000px;
+    margin: 80px auto;
+}
+
+/* Locations Section */
+.locations {
+    height: 500px;
+    width: 100%;
+    background-image: url('https://content.codecademy.com/courses/freelance-1/unit-4/img-locations-background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 70px;
+}
+
+.locations h2 {
+    margin-bottom: 15px;
+}
+
+.locations > div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.location-box {
+    background-color: black;
+    width: 300px;
+    padding: 20px;
+    opacity: 1;
+}
+
+.location-box h3 {
+    margin: 15px 0;
+}
+
+/* Footer Styles */
+footer {
+    height: 200px;
+    padding: 20px;
+}
+
+footer h5 {
+    margin: 10px;
+}
